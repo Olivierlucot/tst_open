@@ -1,5 +1,6 @@
-FROM alpine:3.4
+FROM ubuntu
 
-RUN apk update
-RUN apk add vim
-RUN apk add curl
+RUN apt-get update
+RUN apt-get install -y nginx
+ENTRYPOINT [“/usr/sbin/nginx”,”-g”,”daemon off;”]
+EXPOSE 80
